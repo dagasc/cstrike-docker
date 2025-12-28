@@ -18,23 +18,23 @@ This image is based on [SteamCMD Docker](https://developer.valvesoftware.com/wik
 The fastest way to run the Counter-Strike 1.6 Server is via `docker run`.
 * Pull the image:
 ```
-docker pull cajuclc/cstrike-docker
+docker pull dagasc/cstrike-docker
 ```
 * Run the image:
 ```
-docker run --name cstrike -p 27015:27015/udp -p 27015:27015 cajuclc/cstrike-docker
+docker run --name cstrike -p 27015:27015/udp -p 27015:27015 dagasc/cstrike-docker
 ```
 * You can also run the server via `docker-compose`. You can find an example below.
 
 # Custom Config Files
 You can use your own `server.cfg`, `dproto.cfg`, `plugins.ini` and `mapcycle.txt` by mounting them to the container. Any custom config file **WILL** override the settings from your environment variables.
 ```
--v /path/to/your/server.cfg:/home/steam/cstrike/cstrike/server.cfg
+-v /config/server.cfg:/home/steam/cstrike/cstrike/server.cfg
 ```
 
 The complete `docker run` command is:
 ```
-docker run --name cstrike -p 27015:27015/udp -p 27015:27015 -v /path/to/your/server.cfg:/home/steam/cstrike/cstrike/server.cfg cajuclc/cstrike-docker
+docker run --name cstrike -p 27015:27015/udp -p 27015:27015 -v /config/server.cfg:/home/steam/cstrike/cstrike/server.cfg cajuclc/cstrike-docker
 ```
 
 # Docker Compose
